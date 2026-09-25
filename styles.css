@@ -1,4 +1,220 @@
-/* This is your CSS files */
+/* ============================================================
+   ASSIGNMENT 1 — TASK MANAGER
+   All styles for the static interface.
+   Layout method: Flexbox.
+   Font: Roboto (imported in HTML).
+   ============================================================ */
+
+/* ========== GLOBAL RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Base font size 14px throughout the site */
+  font-size: 14px;
+}
+
 body {
-    color: black
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #000000;
+  background-color: #ffffff;
+  line-height: 1.4;
+}
+
+/* Remove default list styling */
+ul {
+  list-style: none;
+}
+
+/* ========== HEADER STYLES ========== */
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #dc4c3e;   /* required header background */
+  color: #ffffff;              /* required header text color */
+  padding: 0 16px;
+  height: 56px;
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Icons in the header */
+.main-header .icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  filter: brightness(0) invert(1); /* makes dark icons white on red bg */
+}
+
+/* Quick find input */
+.quick-find {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  background-color: #ffffff;
+  color: #000000;
+  width: 200px;
+}
+
+.quick-find::placeholder {
+  color: #7e7d79;
+}
+
+/* Task counter on the right */
+.task-counter {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* ========== PAGE LAYOUT (FLEXBOX) ========== */
+.app-layout {
+  display: flex;
+  min-height: calc(100vh - 56px); /* fill remaining viewport */
+}
+
+/* ========== LEFT NAVIGATION (SIDEBAR) ========== */
+.sidebar {
+  width: 300px;                 /* required fixed width */
+  background-color: #fefbf2;    /* required sidebar background */
+  color: #000000;               /* main font color */
+  padding: 16px 0;
+  flex-shrink: 0;               /* prevents shrinking */
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.nav-label {
+  flex: 1;                      /* pushes count to the right */
+  font-size: 14px;
+}
+
+/* Task count styling — small, gray, 12px */
+.nav-count {
+  font-size: 12px;              /* required count font size */
+  color: #7e7d79;               /* required count color */
+  font-weight: 400;
+}
+
+/* ========== MAIN CONTENT STYLES ========== */
+.main-content {
+  flex: 1;                      /* takes remaining width */
+  padding: 32px 24px;
+  background-color: #ffffff;
+}
+
+/* H1 "Inbox" — 20px as required */
+.section-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 24px;
+}
+
+/* Task list */
+.task-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Each task item */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e0e0e0;  /* horizontal rules between tasks */
+}
+
+/* Remove border from last item for cleaner look */
+.task-item:last-child {
+  border-bottom: none;
+}
+
+/* Circular radio button — pure CSS, no images */
+.task-checkbox {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #b0b0b0;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+/* Hover effect (optional, but nice for clickability) */
+.task-checkbox:hover {
+  border-color: #dc4c3e;
+  background-color: #fff5f4;
+}
+
+/* Optional: checked state visual (no JS required) */
+.task-checkbox:focus {
+  outline: 2px solid #dc4c3e;
+  outline-offset: 2px;
+}
+
+/* Task text */
+.task-text {
+  font-size: 14px;
+  color: #000000;
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+/* Hide left navigation on viewports 480px or less */
+@media (max-width: 480px) {
+  .sidebar {
+    display: none;
+  }
+
+  .quick-find {
+    width: 140px;
+  }
+
+  .main-content {
+    padding: 24px 16px;
+  }
+}
+
+/* Additional tweak: make quick find flexible on very small screens */
+@media (max-width: 360px) {
+  .quick-find {
+    width: 100px;
+  }
+
+  .header-left {
+    gap: 8px;
+  }
 }

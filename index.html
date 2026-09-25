@@ -1,9 +1,95 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <!-- Link your CSS file and other references here -->
-    </head>
-    <body>
-        <!-- Content goes here -->
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager · Assignment 1</title>
+  <!-- External stylesheet (all styles in styles.css) -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Roboto font from Google Fonts (lightweight and clean) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ========== HEADER ========== -->
+  <header class="main-header">
+    <div class="header-left">
+      <!-- menu icon (provided asset) -->
+      <img src="assets/menu_icon.png" alt="menu icon" class="icon menu-icon">
+      <!-- quick find input -->
+      <input type="text" class="quick-find" placeholder="Quick find" aria-label="Quick find tasks">
+    </div>
+    <div class="header-right">
+      <!-- task counter: 30/5 as required -->
+      <span class="task-counter">30/5</span>
+      <!-- search icon (provided asset, placed after counter for visual balance) -->
+      <img src="assets/search_icon.png" alt="search icon" class="icon search-icon">
+    </div>
+  </header>
+
+  <!-- ========== PAGE LAYOUT: FLEXBOX ========== -->
+  <div class="app-layout">
+    <!-- ========== LEFT NAVIGATION (SIDEBAR) ========== -->
+    <nav class="sidebar">
+      <ul class="nav-list">
+        <!-- Inbox with count 5 -->
+        <li class="nav-item">
+          <img src="assets/inbox_icon.png" alt="inbox" class="nav-icon">
+          <span class="nav-label">Inbox</span>
+          <span class="nav-count">5</span>
+        </li>
+        <!-- Today with count 5 -->
+        <li class="nav-item">
+          <img src="assets/calendar_icon.png" alt="today" class="nav-icon">
+          <span class="nav-label">Today</span>
+          <span class="nav-count">5</span>
+        </li>
+        <!-- Upcoming (no count) -->
+        <li class="nav-item">
+          <img src="assets/upcoming_icon.png" alt="upcoming" class="nav-icon">
+          <span class="nav-label">Upcoming</span>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content">
+      <!-- Section header h1: "Inbox" -->
+      <h1 class="section-title">Inbox</h1>
+
+      <!-- Task list using unordered list -->
+      <ul class="task-list">
+        <!-- Task 1: Call Mom -->
+        <li class="task-item">
+          <!-- circular radio button (CSS-only, no image) -->
+          <span class="task-checkbox" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="task-text">Call Mom</span>
+        </li>
+        <!-- Task 2: Buy the new issue of Scientific American -->
+        <li class="task-item">
+          <span class="task-checkbox" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="task-text">Buy the new issue of Scientific American</span>
+        </li>
+        <!-- Task 3: Return the textbook to Josie -->
+        <li class="task-item">
+          <span class="task-checkbox" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="task-text">Return the textbook to Josie</span>
+        </li>
+        <!-- Task 4: Buy the new album by Rake -->
+        <li class="task-item">
+          <span class="task-checkbox" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="task-text">Buy the new album by Rake</span>
+        </li>
+        <!-- Task 5: Buy a gift card for Dad -->
+        <li class="task-item">
+          <span class="task-checkbox" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="task-text">Buy a gift card for Dad</span>
+        </li>
+      </ul>
+    </main>
+  </div>
+
+
+</body>
 </html>
